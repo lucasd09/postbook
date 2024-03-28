@@ -15,7 +15,7 @@ export default async function Navbar() {
   const session = await getServerAuthSession();
 
   return (
-    <nav className="flex items-center justify-center border-b py-4">
+    <nav className="fixed z-50 flex w-screen items-center justify-center border-b bg-background py-4">
       <Link href={"/"}>
         <h1 className="scroll-m-20 font-semibold tracking-tight">Postbook</h1>
       </Link>
