@@ -42,7 +42,7 @@ export default async function Home() {
                 </div>
                 <div className="flex space-x-2">
                   <h1 className="text-xs font-medium">{post.user?.name}</h1>
-                  <p className="text-xs ">{post.post.name}</p>
+                  <p className="text-xs ">{post.post.title}</p>
                 </div>
               </div>
             );

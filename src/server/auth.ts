@@ -24,11 +24,6 @@ declare module "next-auth" {
       image?: string | undefined;
     } & DefaultSession["user"];
   }
-
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
 }
 
 export const authOptions: NextAuthOptions = {

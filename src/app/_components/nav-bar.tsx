@@ -10,6 +10,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";
 import { getServerAuthSession } from "~/server/auth";
+import { Plus } from "lucide-react";
+import { Separator } from "~/components/ui/separator";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
@@ -21,28 +23,36 @@ export default async function Navbar() {
       </Link>
       <div className="absolute right-[15%] flex">
         {session ? (
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Avatar>
-                <AvatarImage src={session.user.image} />
-                <AvatarFallback></AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <Link href={"/profile"}>
-                <DropdownMenuItem>Perfil</DropdownMenuItem>
-              </Link>
-              <Link href={"/settings"}>
-                <DropdownMenuItem>Configurações</DropdownMenuItem>
-              </Link>
-              <DropdownMenuSeparator />
-              <Link href={"/api/auth/signout"}>
-                <DropdownMenuItem>Sair</DropdownMenuItem>
-              </Link>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="flex items-center space-x-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Avatar>
+                  <AvatarImage src={session.user.image} />
+                  <AvatarFallback></AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <Link href={"/profile"}>
+                  <DropdownMenuItem>Perfil</DropdownMenuItem>
+                </Link>
+                <Link href={"/settings"}>
+                  <DropdownMenuItem>Configurações</DropdownMenuItem>
+                </Link>
+                <DropdownMenuSeparator />
+                <Link href={"/api/auth/signout"}>
+                  <DropdownMenuItem>Sair</DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Separator orientation="vertical" />
+            <Link href={"/new-post"}>
+              <Button size={"icon"}>
+                <Plus />
+              </Button>
+            </Link>
+          </div>
         ) : (
           <Link href={"/api/auth/signin"}>
             <Button>Login</Button>
