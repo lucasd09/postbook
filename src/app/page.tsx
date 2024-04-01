@@ -33,8 +33,9 @@ export default async function Home() {
                 </div>
                 <Skeleton className="h-96 w-full" />
                 <div className="flex justify-between">
-                  <div className="flex space-x-2">
+                  <div className="flex items-center space-x-2">
                     <Heart className="size-4" />
+                    <p className="text-sm">{post.post.likes}</p>
                     <MessageCircle className="size-4" />
                     <Send className="size-4" />
                   </div>
