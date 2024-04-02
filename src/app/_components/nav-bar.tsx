@@ -10,8 +10,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";
 import { getServerAuthSession } from "~/server/auth";
-import { Plus } from "lucide-react";
 import { Separator } from "~/components/ui/separator";
+import { CreatePost } from "./create-post";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
@@ -47,11 +47,7 @@ export default async function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
             <Separator orientation="vertical" />
-            <Link href={"/new-post"}>
-              <Button size={"icon"}>
-                <Plus />
-              </Button>
-            </Link>
+            <CreatePost />
           </div>
         ) : (
           <Link href={"/api/auth/signin"}>

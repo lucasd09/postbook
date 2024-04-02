@@ -1,3 +1,9 @@
+import { CreatePost } from "../_components/create-post";
+
 export default function Page() {
-  return <div></div>;
+  return (
+    <div>
+      <CreatePost />
+    </div>
+  );
 }
