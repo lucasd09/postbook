@@ -47,7 +47,7 @@ export default async function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
             <Separator orientation="vertical" />
-            <CreatePost />
+            {/* <CreatePost /> */}
           </div>
         ) : (
           <Link href={"/api/auth/signin"}>
